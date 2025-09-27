@@ -1,45 +1,88 @@
-Social Media Backend – REST API
+# Social Media Backend – REST API
 
-This repository implements a backend system with user authentication, user profiles, posts, comments, and reactions. The APIs are RESTful and include file uploads (images and videos).
+This repository implements a **backend system** for a social media application, including **user authentication, user profiles, posts, comments, and reactions**.  
+The APIs are **RESTful** and support **file uploads** (images and videos).
 
-- All functions in the code are documented inline with detailed comments for easier understanding and maintenance.
+All functions in the code are documented **inline with detailed comments** for easier understanding and maintenance.
 
-Features
+---
 
-- Authentication: register, login, logout using JWT tokens.
-- User Profile: view authenticated user profile.
-- Posts: create, edit, delete and list posts. Supports image and video upload.
-- Newsfeed: get all posts with author info, reactions, and comments.
-- Comments: add comments to posts and can see all comments of user post.
-- Reactions: like/unlike posts.
-- Pagination: supported for listing posts.
+## Features
 
-Setup Instructions
+- **Authentication**
+  - Register, login, and logout using **JWT tokens**.
+- **User Profile**
+  - View authenticated user profile with post, comment, and reaction counts.
+- **Posts**
+  - Create, edit, delete, and list posts.
+  - Supports **image and video uploads**.
+- **Newsfeed**
+  - Get all posts with author info, reactions, and comments.
+- **Comments**
+  - Add comments to posts and view all comments of a user’s post.
+- **Reactions**
+  - Like or unlike posts (toggle behavior).
+- **Pagination**
+  - Supported for listing posts.
 
-1. Clone the repository:
+---
 
-   - git clone https://github.com/yourusername/backend.git
+## Setup Instructions
 
-2. Install dependencies:
+### 1. Clone the repository
 
-   - npm install
+```bash
+git clone https://github.com/yourusername/backend.git
+cd backend
+```
 
-3. Set environment variables in .env:
+### 2. Install dependencies
 
-   # MongoDB Connection URI
+```bash
+npm install
+```
 
-   MONGO_URI = "mongodb+srv://username:password/?retryWrites=true&w=majority"
+### 3. Set environment variables
 
-   # JWT Secret for token signing
+Create a .env file in the root directory with the following content:
 
-   JWT_SECRET = "your_jwt_secret"
+# MongoDB Connection URI
 
-   # Optional: Port for your server
+MONGO_URI="mongodb+srv://username:password/?retryWrites=true&w=majority"
 
-   PORT = 5000
+# JWT Secret for token signing
 
-4. Run the server:
+JWT_SECRET="your_jwt_secret"
 
-   - npm start
+# Optional: Port for your server
 
-5. The API will be available at: http://localhost:5000
+PORT=5000
+
+### 4. Run the server locally
+
+```bash
+npm start
+The server will be available at: http://localhost:5000
+```
+
+Deployment on Railway
+
+To deploy on Railway (free hosting for hobby projects):
+
+1.Sign up at https://railway.app
+2.Create a new project and select Deploy from GitHub
+3.Connect your repository (backend)
+4.Set environment variables in Railway:
+MONGO_URI
+JWT_SECRET
+PORT (Railway will provide a dynamic port if needed) 5. Click Deploy
+
+Your production API will be available at:
+https://social-media-be.up.railway.app
+
+### API Documentation (Swagger)
+
+-- All endpoints are documented using Swagger with request and response examples.
+-- Local Swagger UI: http://localhost:5000/api-docs
+
+> ⚠️ **Note:** For local development, make sure to allow `localhost:3000` (frontend) and `localhost:5000` (backend) in `app.js` CORS settings.
