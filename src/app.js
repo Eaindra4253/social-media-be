@@ -14,7 +14,7 @@ const app = express();
 // Enable CORS
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://social-media-be.up.railway.app",
     credentials: true,
   })
 );
@@ -44,7 +44,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:5000",
+        url: "https://social-media-be.up.railway.app",
       },
     ],
   },
