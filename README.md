@@ -80,9 +80,13 @@ PORT (Railway will provide a dynamic port if needed) 5. Click Deploy
 Your production API will be available at:
 https://social-media-be.up.railway.app
 
-### API Documentation (Swagger)
+---
 
--- All endpoints are documented using Swagger with request and response examples.
--- Local Swagger UI: http://localhost:5000/api-docs
+## API Documentation (Swagger)
+
+**All endpoints are documented using Swagger with request and response examples.**
+
+- **Local Swagger UI:** **http://localhost:5000/api-docs**
+- **Production Swagger UI:** **https://social-media-be.up.railway.app/api-docs**
 
 > ⚠️ **Note:** For local development, make sure to allow `localhost:3000` (frontend) and `localhost:5000` (backend) in `app.js` CORS settings.
