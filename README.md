@@ -8,9 +8,9 @@ Features
 
 - Authentication: register, login, logout using JWT tokens.
 - User Profile: view authenticated user profile.
-- Posts: create, edit, and list posts. Supports image and video upload.
+- Posts: create, edit, delete and list posts. Supports image and video upload.
 - Newsfeed: get all posts with author info, reactions, and comments.
-- Comments: add comments to posts.
+- Comments: add comments to posts and can see all comments of user post.
 - Reactions: like/unlike posts.
 - Pagination: supported for listing posts.
 
@@ -18,7 +18,7 @@ Setup Instructions
 
 1. Clone the repository:
 
-   - git clone https://github.com/yourusername/backend-test-assignment.git
+   - git clone https://github.com/yourusername/backend.git
 
 2. Install dependencies:
 
