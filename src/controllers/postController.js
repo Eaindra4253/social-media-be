@@ -1,3 +1,4 @@
+require("dotenv").config();
 const Post = require("../models/postModel");
 const Comment = require("../models/commentModel");
 const Reaction = require("../models/reactionModel");
@@ -14,7 +15,7 @@ const getPosts = async (req, res) => {
     const limit = parseInt(req.query.limit, 10) || 10;
     const skip = (page - 1) * limit;
 
-    const baseUrl = `${req.protocol}://${req.get("host")}`;
+    const baseUrl = process.env.BACKEND_URL || `https://${req.get("host")}`;
 
     const total = await Post.countDocuments();
 

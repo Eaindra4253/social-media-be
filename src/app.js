@@ -14,14 +14,16 @@ const app = express();
 // Enable CORS
 app.use(
   cors({
-    origin: "https://social-media-fe-sepia.vercel.app",
+    origin: ["https://social-media-fe-sepia.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
 
 app.use(express.json());
 
-app.use("/uploads", express.static(path.resolve(process.cwd(), "src/uploads")));
+// app.use("/uploads", express.static(path.resolve(process.cwd(), "src/uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 connectDB();
 
