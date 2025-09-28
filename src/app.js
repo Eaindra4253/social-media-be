@@ -14,7 +14,7 @@ const app = express();
 // Enable CORS
 app.use(
   cors({
-    origin: "https://social-media-be.up.railway.app",
+    origin: "https://social-media-fe-sepia.vercel.app",
     credentials: true,
   })
 );
