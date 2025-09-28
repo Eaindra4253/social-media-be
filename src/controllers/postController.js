@@ -20,10 +20,11 @@ const getPosts = async (req, res) => {
 
     const posts = await Post.find({})
       .populate("user_id", "name email profile_picture_url")
-      .sort({ created_at: -1 })
+      .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit)
       .lean();
+    console.log("posts", posts);
 
     const postsWithCounts = await Promise.all(
       posts.map(async (post) => {
@@ -31,6 +32,15 @@ const getPosts = async (req, res) => {
           Comment.countDocuments({ post: post._id }),
           Reaction.countDocuments({ post: post._id }),
         ]);
+
+        const user = post.user_id
+          ? {
+              _id: post.user_id._id,
+              name: post.user_id.name,
+              email: post.user_id.email,
+              profile_picture_url: post.user_id.profile_picture_url,
+            }
+          : null;
 
         return {
           _id: post._id,
@@ -42,12 +52,7 @@ const getPosts = async (req, res) => {
           updated_at: post.updatedAt,
           commentCount,
           reactionCount,
-          user: {
-            _id: post.user_id._id,
-            name: post.user_id.name,
-            email: post.user_id.email,
-            profile_picture_url: post.user_id.profile_picture_url,
-          },
+          user,
         };
       })
     );
